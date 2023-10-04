@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <Container>
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12">
           {rooms.map((room) => (
             <div className="" key={room.id}>
               <figure className="w-64 h-64 rounded-2xl overflow-hidden">
