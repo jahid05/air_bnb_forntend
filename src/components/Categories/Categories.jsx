@@ -1,9 +1,9 @@
 import Container from "../Container/Container";
-import { PiSlidersHorizontalBold } from "react-icons/pi";
 import { GiIsland, GiWindmill } from "react-icons/gi";
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import { MdOutlineVilla } from "react-icons/md";
 import CategoryBox from "./CategoryBox";
+import FiltersModal from "../FiltersModal/FiltersModal";
 
 const Categories = () => {
   const categories = [
@@ -41,21 +41,19 @@ const Categories = () => {
   return (
     <Container>
       <div className="flex justify-between items-center pt-24 pb-4 overflow-x-auto">
+        {/*=================================Categories area=================================*/}
         <div className="mx-auto flex gap-10">
-          {
-            categories.map((category) => (
-              <CategoryBox className="" key={category.label} label={category.label} icon={category.icon}/>
-            ))
-          }
+          {categories.map((category) => (
+            <CategoryBox
+              className=""
+              key={category.label}
+              label={category.label}
+              icon={category.icon}
+            />
+          ))}
         </div>
-        <div className="">
-          <button className="text-[14px] flex gap-2 border py-3 px-4 rounded-2xl hover:shadow-md duration-200">
-            <span className="text-xl">
-              <PiSlidersHorizontalBold></PiSlidersHorizontalBold>
-            </span>{" "}
-            Filters
-          </button>
-        </div>
+        {/*=================================Filters area=================================*/}
+        <FiltersModal/>
       </div>
     </Container>
   );

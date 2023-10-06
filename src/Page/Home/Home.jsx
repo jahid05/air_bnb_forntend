@@ -13,12 +13,12 @@ const Home = () => {
   return (
     <Container>
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6 py-6">
           {rooms.map((room) => (
             <div className="" key={room.id}>
-              <figure className="w-64 h-64 rounded-2xl overflow-hidden">
+              <figure className="">
                 <img
-                  className="h-full w-full object-cover"
+                  className="h-[260px] w-[100%] rounded-2xl overflow-hidden object-cover"
                   src={room.image}
                   alt="Room Image"
                 />

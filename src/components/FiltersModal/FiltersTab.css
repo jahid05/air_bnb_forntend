@@ -1,0 +1,5 @@
+.react-tabs__tab--selected{
+    background-color: #292929;
+    color: #e9e9e9;
+    transition: .3s all linear;
+}
