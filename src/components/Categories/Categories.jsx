@@ -38,6 +38,8 @@ const Categories = () => {
       description: "This property is on an island!",
     },
   ];
+
+  
   return (
     <Container>
       <div className="flex justify-between items-center pt-24 pb-4 overflow-x-auto">

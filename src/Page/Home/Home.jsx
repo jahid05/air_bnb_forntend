@@ -1,24 +1,39 @@
 import { useEffect, useState } from "react";
 import Container from "../../components/Container/Container";
+import Loader from "../../components/Shared/Loader";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
   const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line no-unused-vars
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category");
+  console.log(category);
   useEffect(() => {
+    setLoading(false);
     fetch("roomData.json")
       .then((res) => res.json())
-      .then((data) => setRooms(data));
-  }, []);
+      .then((data) => {
+        if (category) {
+          const filtered = data.filter((room) => room.category === category);
+          setRooms(filtered);
+        } else {
+          setRooms(data);
+        }
+      });
+  }, [category]);
 
-  console.log(rooms);
   return (
     <Container>
+      {loading && <Loader />}
       <div className="flex justify-center">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6 py-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-8 py-6">
           {rooms.map((room) => (
-            <div className="" key={room.id}>
-              <figure className="">
+            <div className="p-2 group" key={room.id}>
+              <figure className="aspect-square w-full relative overflow-hidden rounded-xl">
                 <img
-                  className="h-[260px] w-[100%] rounded-2xl overflow-hidden object-cover"
+                  className="h-full w-full group-hover:scale-110 transition-all duration-500 rounded-2xl object-cover"
                   src={room.image}
                   alt="Room Image"
                 />

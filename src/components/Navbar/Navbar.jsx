@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="py-4">
         <Container>
           <div className="flex justify-between items-center">
-            <Logo />
+            <Logo/>
             <Search />
             <Avatar />
           </div>
